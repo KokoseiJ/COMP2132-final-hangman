@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap");
+* {
+  box-sizing: inherit;
+  font-family: "Red Hat Display";
+  font-size: 32px; }
+
+.hidden {
+  display: none !important; }
+
+body {
+  display: grid;
+  min-height: 100vh;
+  margin: 0;
+  box-sizing: border-box;
+  grid-template-rows: auto 1fr; }
+
+h1 {
+  text-align: center;
+  font-size: 40px;
+  margin: 0;
+  padding: 30px 0;
+  border-bottom: 1px darkgray solid; }
+
+p {
+  margin: 0; }
+
+main {
+  display: grid;
+  align-items: center;
+  justify-items: center; }
+
+div#hangmanMain {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: 300px 300px;
+  padding: 30px;
+  border: 3px darkgray solid;
+  border-radius: 15px; }
+
+div#hangmanMain > * {
+  grid-column: 1 / 3; }
+
+p#hangmanResult {
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px; }
+
+div#hangmanMain div.hangmanImgDiv {
+  grid-column: 1; }
+
+div#hangmanMain p#hangmanTxt {
+  grid-column: 2;
+  align-self: center;
+  font-weight: bold; }
+
+img#hangmanImg {
+  width: 300px; }
+
+p#hangmanHint {
+  font-size: 24px; }
+
+span#hangmanUsed {
+  font-weight: bold; }
+
+div#hangmanInputDiv, a#hangmanAgain {
+  justify-self: center; }
+
+a#hangmanSubmit {
+  border-radius: 15px;
+  padding: 5px 15px;
+  background-color: lightskyblue;
+  cursor: pointer; }
+  a#hangmanSubmit:hover {
+    background-color: lightblue; }
+
+a#hangmanAgain {
+  color: white;
+  border-radius: 15px;
+  padding: 5px 15px;
+  background-color: orangered;
+  cursor: pointer; }
+  a#hangmanAgain:hover {
+    background-color: red; }
+
+input#hangmanInput {
+  width: 50px;
+  border: 0;
+  border-bottom: 1px black solid;
+  text-align: center; }
+
+@media (width < 700px) {
+  h1 {
+    font-size: 32px; }
+
+  div#hangmanMain {
+    width: 95%;
+    grid-template-columns: auto;
+    justify-items: center; }
+
+  div#hangmanMain > * {
+    grid-column: auto; }
+
+  img#hangmanImg {
+    width: 200px; }
+
+  div#hangmanMain div.hangmanImgDiv {
+    grid-column: auto; }
+
+  div#hangmanMain p#hangmanTxt {
+    grid-column: auto; } }

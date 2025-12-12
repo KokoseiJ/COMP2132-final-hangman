@@ -11,15 +11,14 @@
 		<h1>Let's play Hangman!</h1>
 		<main>
 			<div id="hangmanMain">
+				<p id="hangmanResult" class="hidden"></p>
 				<div class="hangmanImgDiv">
-					<h2 id="hangmanResult" class="hidden"></h2>
 					<img id="hangmanImg" src="/" alt="Image of hangman" />
-					<h2 id="hangmanHint"></h2>
 				</div>
 				<p id="hangmanTxt"></p>
+				<p id="hangmanHint"></p>
 				<div class="hangmanUsedDiv">
-					<p>Used Letters:</p>
-					<p id="hangmanUsed"></p>
+					<p>Used Letters: <span id="hangmanUsed"></span></p>
 				</div>
 				<div id="hangmanInputDiv">
 					<input type="text" id="hangmanInput" />
