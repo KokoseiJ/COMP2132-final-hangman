@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link href="styles/style.css" rel="stylesheet" />
+		<title>Assn8</title>
+		<script defer src="scripts/script.js"></script>
+	</head>
+	<body>
+		<h1>Let's play Hangman!</h1>
+		<main>
+			<div id="hangmanMain">
+				<div class="hangmanImgDiv">
+					<h2 id="hangmanResult" class="hidden"></h2>
+					<img id="hangmanImg" src="/" alt="Image of hangman" />
+					<h2 id="hangmanHint"></h2>
+				</div>
+				<p id="hangmanTxt"></p>
+				<div class="hangmanUsedDiv">
+					<p>Used Letters:</p>
+					<p id="hangmanUsed"></p>
+				</div>
+				<div id="hangmanInputDiv">
+					<input type="text" id="hangmanInput" />
+					<a id="hangmanSubmit" class="hangmanButton">
+						Enter
+					</a>
+				</div>
+				<a id="hangmanAgain" class="hangmanButton hidden">
+					Play Again
+				</a>
+			</div>
+		</main>
+	</body>
+</html>
