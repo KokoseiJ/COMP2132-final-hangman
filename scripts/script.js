@@ -55,7 +55,7 @@ class hangmanClass {
 
 	inputCheck = (e) => {
 		if (!e.data) return;
-		let userInput = e.data.replace(/[^a-z]/, "");
+		let userInput = e.data.slice(0, 1).replace(/[^a-z]/, "");
 		if ((this.correctChars + this.incorrectChars).includes(userInput))
 			userInput = "";
 
@@ -66,7 +66,7 @@ class hangmanClass {
 		let userInput = hangmanInputElem.value.toLowerCase();
 		hangmanInputElem.value = "";
 		if (userInput.length == 0) return;
-		userInput = userInput[0];
+		userInput = userInput.slice(0, 1);
 
 		if ((this.correctChars + this.incorrectChars).includes(userInput))
 			return;
