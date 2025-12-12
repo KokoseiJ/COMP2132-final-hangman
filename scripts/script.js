@@ -29,8 +29,7 @@ function hangmanUpdate() {
 		}
 	}, "");
 
-	if (isCorrect)
-		isGameOver = true;
+	if (isCorrect) isGameOver = true;
 
 	hangmanImgElem.setAttribute("src", `images/hangman${errors}.png`);
 
@@ -50,9 +49,6 @@ function hangmanUpdate() {
 }
 
 function init() {
-	// TODO: replace with JSON fetcher
-	answer = "ia best vocaloid".toLowerCase();
-	hangmanHintElem.innerHTML = "Hint: test 1234";
 	correctChars = [];
 	incorrectChars = [];
 	errors = 0;
@@ -61,7 +57,20 @@ function init() {
 	hangmanInputDivElem.classList.remove("hidden");
 	hangmanAgainElem.classList.add("hidden");
 
-	hangmanUpdate();
+	fetch("data/answers.json").then((resp) => {
+		if (!resp.ok) {
+			alert("Failed to receive answer data!");
+			return;
+		}
+
+		resp.json().then((data) => {
+			const answerObj = data[Math.floor(Math.random() * data.length)];
+			answer = answerObj.answer;
+			hangmanHintElem.innerHTML = `Hint: ${answerObj.hint}`;
+
+			hangmanUpdate();
+		});
+	});
 }
 
 hangmanInputElem.addEventListener("input", (e) => {
@@ -90,11 +99,11 @@ const submitHandler = () => {
 	hangmanUpdate();
 };
 
-hangmanInputElem.addEventListener("keyup", (e)=>{
+hangmanInputElem.addEventListener("keyup", (e) => {
 	if (e.key == "Enter") submitHandler();
-})
+});
 hangmanSubmitElem.addEventListener("click", submitHandler);
 
-hangmanAgainElem.addEventListener("click", init)
+hangmanAgainElem.addEventListener("click", init);
 
 init();
